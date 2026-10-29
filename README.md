@@ -2,7 +2,7 @@
 <img src="docs/demo.gif" alt="Arvion UI documentation site showing the overview page" width="100%" />
 </div>
 
-<sub>Recorded from the live demo — <a href="docs/demo.mp4">MP4</a> · <a href="docs/screenshot.png">static frame</a></sub>
+<sub>Recorded from the live demo, <a href="docs/demo.mp4">MP4</a> · <a href="docs/screenshot.png">static frame</a></sub>
 
 # Arvion UI
 
@@ -25,22 +25,22 @@ thing is readable in a session.
 
 ## What it does
 
-- **A documentation site with search** — sidebar navigation, a ranked search
+- **A documentation site with search**: sidebar navigation, a ranked search
   index over all thirty components and five foundations, and deep links such as
   `#/components/button` and `#/tokens/color`.
-- **Token pages** — colour roles with contrast measured against both the card
+- **Token pages**: colour roles with contrast measured against both the card
   and the page, the primitive ramps they come from, the eleven-step type scale,
   the 4px spacing scale, radii, elevation and four motion curves.
-- **Thirty components** — every one has a live preview rendered from its
+- **Thirty components**: every one has a live preview rendered from its
   copyable HTML snippet, two or three accessibility notes, and usage guidance.
   Preview and snippet come from the same registry entry, so they cannot drift.
-- **Dark and light themes** — a theme switch in the top bar, persisted, and an
+- **Dark and light themes**: a theme switch in the top bar, persisted, and an
   independent theme toggle on every component preview so you can check both
   surfaces without leaving the page.
-- **A computed contrast audit** — eleven promised pairs per theme, checked at
+- **A computed contrast audit**: eleven promised pairs per theme, checked at
   load time and printed with the WCAG level each pair reaches. The test suite
   fails if any pair drops below its declared threshold.
-- **A generated token stylesheet** — `themeCSS()` emits the semantic custom
+- **A generated token stylesheet**: `themeCSS()` emits the semantic custom
   properties for both themes, ready to paste into another project.
 
 ## Screenshots
@@ -101,7 +101,7 @@ npm run verify    # unit tests plus static checks on the demo bundle
 
 **Three token layers, and only one is public.** `PRIMITIVES` holds the raw ink,
 gold, blue and status ramps. `THEMES` maps both themes onto twenty-nine semantic
-roles — `bg`, `surface`, `text`, `accentText`, `blue`, `focus`, and so on.
+roles, `bg`, `surface`, `text`, `accentText`, `blue`, `focus`, and so on.
 `cssVariables()` emits `--arv-color-*`, `--arv-space-*`, `--arv-text-*` and the
 rest. Components read the semantic layer only; the emitted CSS never contains a
 primitive, which the tests assert by looking for `ink-900`. The reason is
@@ -110,7 +110,7 @@ today it is one grep away from being unrecoverable.
 
 **The contrast audit is code, not a spreadsheet.** Every pair the system
 promises lives in `A11Y_PAIRS` as two semantic token names and a use. The audit
-resolves them through the active theme and runs `contrastRatio()` — WCAG 2.2
+resolves them through the active theme and runs `contrastRatio()`, WCAG 2.2
 relative luminance, with translucent colours composited over the backdrop first,
 because a ratio only exists relative to a background. The tests check the maths
 against known anchors (black on white is 21:1, `#767676` on white is 4.54:1),
@@ -126,7 +126,7 @@ report.summary;
 
 **One deliberate change to the brand colour.** The brand blue is `#3a7bff`.
 White 13px text on it measures 3.84:1, which fails AA for normal text. The
-action fill is therefore `#2f66e0` (5.12:1) — the brand hue is still used for
+action fill is therefore `#2f66e0` (5.12:1), the brand hue is still used for
 charts and tints, where the same rule does not apply. The docs state this on the
 colour page rather than quietly shipping a failing button.
 
@@ -146,7 +146,7 @@ stability and the highlight ranges used by the result list.
 deliberate limit: snippets stay pasteable HTML with no shadow DOM, no
 registration step and no framework. The interactive examples (tabs, dropdown,
 switch, modal, toast) are wired in the docs page with the same helpers a
-consumer would use — the snippet shows the markup contract, the page shows the
+consumer would use, the snippet shows the markup contract, the page shows the
 behaviour.
 
 ## Tests
